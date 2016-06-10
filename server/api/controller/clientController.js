@@ -1,7 +1,7 @@
 'use strict';
 
 var config = require('../../config/environment');
-var clientService = require(config.resources.services + '/clientService');
+var clientService = require(config.resources.service + '/clientService');
 
 module.exports = (function () {
 

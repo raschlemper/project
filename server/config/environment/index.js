@@ -9,15 +9,14 @@ var config = {
   env: process.env.NODE_ENV || 'development',
   root: path.normalize(__dirname + '/../../../'),
   resources: {
-    routes: path.normalize(__dirname + '/../../../server/api/routes'),
-    controllers: path.normalize(__dirname + '/../../../server/api/controllers'),
-    services: path.normalize(__dirname + '/../../../server/api/services'),
-    repositories: path.normalize(__dirname + '/../../../server/api/repositories'),
-    models: path.normalize(__dirname + '/../../../server/api/models'),
-    templates: path.normalize(__dirname + '/../../../server/templates'),
+    route: path.normalize(__dirname + '/../../../server/api/route'),
+    controller: path.normalize(__dirname + '/../../../server/api/controller'),
+    service: path.normalize(__dirname + '/../../../server/api/service'),
+    repository: path.normalize(__dirname + '/../../../server/api/repository'),
+    model: path.normalize(__dirname + '/../../../server/api/model'),
     auth: path.normalize(__dirname + '/../../../server/auth'),
     security: path.normalize(__dirname + '/../../../server/security'),
-    errors: path.normalize(__dirname + '/../../../server/errors')
+    errors: path.normalize(__dirname + '/../../../server/error')
   },
   ip: process.env.IP || '127.0.0.1',
   port: process.env.PORT || 3000,

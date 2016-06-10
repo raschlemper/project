@@ -3,24 +3,21 @@
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 var express = require('express');
+var http = require('http');
+var config = require('./config/mongodb');
 var config = require('./config/environment');
-var db = require('./config/sequelize');
 
 /**
  * Server Configs
  */
 var app = express();
-var server = require('http').createServer(app);
+var server = http.createServer(app);
 
 require('./config/express')(app);
 require('./routes')(app);
 
-db.sync().then(function () {
-  server.listen(config.port, config.ip, function () {
-    console.log('Vision listening on http://%s:%d, in %s mode', config.ip, config.port, app.get('env'));
-  });
-}).catch(function (err) {
-    console.log('Server failed to start due to error: %s', err);
+server.listen(config.port, config.ip, function () {
+	console.log('Vision listening on http://%s:%d, in %s mode', config.ip, config.port, app.get('env'));
 });
 
 exports = module.exports = app;

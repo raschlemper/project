@@ -5,7 +5,7 @@ var errorHandler = require(config.resources.errors + '/errorHandler');
 
 module.exports = function (app) {
 
-  app.use('/api/client', require('./api/routes/clientRoute'));
+  app.use('/api/client', require('./api/route/clientRoute'));
 
   // Tratamento dos erros
   app.use(errorHandler);

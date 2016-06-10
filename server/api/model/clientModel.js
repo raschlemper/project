@@ -1,25 +1,49 @@
-'use strict'
+'use strict';
 
-module.exports = function (sequelize, DataTypes) {
-  var Client = sequelize.define('Client', {
-    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-    type: { type: DataTypes.STRING },
-    data: { type: DataTypes.JSON }
-  }, {
-    timestamps: false,
-    tableName: 'client',
-    schema: 'vision',
-    underscored: true,
-    freezeTableName: true,
-    charset: 'utf8',
-  });
+var mongoose = require('mongoose');
+var deepPopulate = require('mongoose-deep-populate');
 
-  sequelize.View.hasOne(Client);
-  sequelize.Datasource.hasOne(Client);
+var Schema = mongoose.Schema;
 
-  Client.belongsTo(sequelize.View);
-  Client.belongsTo(sequelize.Datasource);
+var ClientSchema = new Schema({
+    name: String,
+    lastname: String,
+    username: {
+        type: String,
+        unique: true,
+        required: true
+    },
+    email: {
+        type: String,
+        lowercase: true,
+        required: true
+    },
+    password: {
+      type: String,
+      required: true
+  },
+    gender: String
+});
 
-  return Client;
-};
-Status API Training Shop Blog About
+
+/**
+ * Virtuals
+ */
+
+
+/**
+ * Validations
+ */
+
+
+/**
+ * Pre-save hook
+ */
+
+
+/**
+ * Methods
+ */
+
+ClientSchema.plugin(deepPopulate);
+module.exports = mongoose.model('Client', ClientSchema);

@@ -1,9 +1,9 @@
 'use strict'
 
-let config = require('../../config/environment');
-let clientController = require(config.resources.controllers + '/clientController');
-let express = require('express');
-let router = express.Router();
+var config = require('../../config/environment');
+var clientController = require(config.resources.controller + '/clientController');
+var express = require('express');
+var router = express.Router();
 
 /**
  * /api/component

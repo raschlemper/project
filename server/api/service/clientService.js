@@ -1,8 +1,7 @@
 'use strict';
 
 var config = require('../../config/environment');
-var repository = require(config.resources.repositories + '/clientRepository');
-var sequelize = require("../../config/sequelize");
+var repository = require(config.resources.repository + '/clientRepository');
 
 module.exports = (function () {
 
